@@ -41,7 +41,7 @@ class ArrayList:
         return self.size
 
     def print_list(self):
-        print(self.array)
+        print(self.array[:self.size])
 
 
 if __name__ == '__main__':
