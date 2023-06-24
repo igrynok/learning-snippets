@@ -1,5 +1,4 @@
 class Stack:
-
     def __init__(self, volume):
         self.capacity = volume
         self.array = [None]*self.capacity
