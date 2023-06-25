@@ -18,10 +18,16 @@ class HashMap:
             self.array[hash_key] = [key_value]
 
     def get(self, key):
-        pass
+        hash_value = self.hash_code(key)
+        for (item_key, item_value) in self.array[hash_value]:
+            if item_key == key:
+                return item_value
 
-    def update(self, key):
-        pass
+    def update(self, key, value):
+        hash_value = self.hash_code(key)
+        for index, (item_key, _) in enumerate(self.array[hash_value]):
+            if item_key == key:
+                self.array[hash_value][index] = (key, value)
 
     def count(self):
         return sum([len(item) for item in self.array if item])
@@ -39,3 +45,6 @@ if __name__ == '__main__':
     hashmap.put(('Philipp', 84))
     hashmap.print_hashmap()
     print(hashmap.count())
+    print(hashmap.get('Daisy'))
+    hashmap.update('Daisy', 27)
+    print(hashmap.get('Daisy'))
