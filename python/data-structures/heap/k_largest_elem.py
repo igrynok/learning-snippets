@@ -3,6 +3,7 @@ import heapq
 
 
 def find_kth_largest(nums: List[int], k: int) -> int:
+    # Find the k-th largest number in an sorted array
     for i, num in enumerate(nums):
         nums[i] = -num
 
