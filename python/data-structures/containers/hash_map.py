@@ -28,6 +28,14 @@ class HashMap:
         for index, (item_key, _) in enumerate(self.array[hash_value]):
             if item_key == key:
                 self.array[hash_value][index] = (key, value)
+                break
+
+    def remove(self, key):
+        hash_value = self.hash_code(key)
+        for item_key, item_value in self.array[hash_value]:
+            if item_key == key:
+                self.array[hash_value].remove((item_key, item_value))
+                break
 
     def count(self):
         return sum([len(item) for item in self.array if item])
@@ -48,3 +56,5 @@ if __name__ == '__main__':
     print(hashmap.get('Daisy'))
     hashmap.update('Daisy', 27)
     print(hashmap.get('Daisy'))
+    hashmap.remove('Daisy')
+    hashmap.print_hashmap()
