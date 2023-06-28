@@ -27,11 +27,20 @@ class Heap:
 
         index = 0
         while index < len(self.array):
+
             left_child = 2*index + 1
-            if left_child < len(self.array):
-                if self.array[left_child] < self.array[index]:
-                    self.array[left_child], self.array[index] = self.array[index], self.array[left_child]
-                    index = left_child
+            right_child = 2*index + 2
+
+            if left_child < len(self.array) - 1 and right_child < len(self.array) - 1:
+                if left_child < right_child:
+                    child = left_child
+                else:
+                    child = right_child
+
+            if child < len(self.array):
+                if self.array[child] < self.array[index]:
+                    self.array[child], self.array[index] = self.array[index], self.array[child]
+                    index = child
                 else:
                     break
             else:
