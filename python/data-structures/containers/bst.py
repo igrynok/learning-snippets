@@ -17,4 +17,13 @@ def find(tree, data):
 
 
 def insert(tree, data):
-    pass
+    if tree.data < data and tree.left is None:
+        tree.left = Node(data)
+        return
+    elif tree.data > data and tree.right is None:
+        tree.right = Node(data)
+        return
+    elif tree.data < data:
+        insert(tree.left, data)
+    else:
+        insert(tree.right, data)
