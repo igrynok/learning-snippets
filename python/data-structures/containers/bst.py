@@ -6,7 +6,14 @@ class Node:
 
 
 def find(tree, data):
-    pass
+    if tree is None:
+        return False
+    if tree.data == data:
+        return True
+    elif tree.data < data:
+        find(tree.right, data)
+    else:
+        find(tree.left, data)
 
 
 def insert(tree, data):
