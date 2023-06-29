@@ -43,6 +43,7 @@ class MedianOfStream:
 
 
 if __name__ == '__main__':
+    # sample input: 6 1 2 3 get 4 get
     median_of_stream = MedianOfStream()
     n = int(input())
     for _ in range(n):
