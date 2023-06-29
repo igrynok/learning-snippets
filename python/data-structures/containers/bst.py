@@ -27,3 +27,11 @@ def insert(tree, data):
         insert(tree.left, data)
     else:
         insert(tree.right, data)
+
+
+def remove(tree, data):
+    pass
+
+
+def print_tree(tree):
+    pass
