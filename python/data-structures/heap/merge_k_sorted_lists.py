@@ -2,8 +2,8 @@ from typing import List
 import heapq
 
 
+# merge k sorted lists in one sorted list
 def merge_k_sorted_lists(lists: List[List[int]]) -> List[int]:
-
     indices = [0] * len(lists)
     heap = []
     result = []
