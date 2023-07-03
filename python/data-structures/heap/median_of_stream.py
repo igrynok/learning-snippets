@@ -1,7 +1,7 @@
 from heapq import heappush, heappop
 
 
-# find a median of the stream of numbers
+# find a median of the stream of numbers by creating min- and max-heaps
 class MedianOfStream:
 
     def __init__(self):
