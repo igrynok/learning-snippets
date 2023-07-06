@@ -1,6 +1,6 @@
 from typing import List
 
-
+# find minimum path in a triangle from top to bottom
 def minimum_total(triangle: List[List[int]]) -> int:
     sums = set()
     generate_sums(sums, triangle[0][0], triangle, 0, 0)
