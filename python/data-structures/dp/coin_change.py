@@ -2,21 +2,24 @@ from typing import List
 
 
 def coin_game(coins: List[int], amount: int) -> int:
-    sums = set()
-
-    def generate_coins(sums, coins_sum, coins_num, amount, coins):
+    def count_ways(coins_sum, index, amount, coins, memo):
         if coins_sum == amount:
-            sums.add(coins_num)
-            return
+            return 1
         elif coins_sum > amount:
-            return
-        else:
-            for coin in coins:
-                generate_coins(sums, coins_sum + coin, coins_num + 1, amount, coins)
+            return 0
+        if memo[index][coins_sum] != -1:
+            return memo[index][coins_sum]
 
-    generate_coins(sums, 0, 0, amount, coins)
+        total = 0
+        for i in range(index, len(coins)):
+            total += count_ways(coins_sum + coins[i], i, amount, coins, memo)
 
-    return len(sums)
+        memo[index][coins_sum] = total
+        return total
+
+    n = len(coins)
+    memo = [[-1 for _ in range(amount + 1)] for _ in range(n + 1)]
+    return count_ways(0, 0, amount, coins, memo)
 
 
 if __name__ == '__main__':
