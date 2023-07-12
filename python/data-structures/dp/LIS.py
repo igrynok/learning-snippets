@@ -1,7 +1,7 @@
 from typing import List
 
 
-# compute the length of longest subsequence
+# compute the length of longest increasing subsequence
 def longest_sub_len(nums: List[int]) -> int:
     dp = [0] * (len(nums))
 
