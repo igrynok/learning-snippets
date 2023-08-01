@@ -1,6 +1,7 @@
 from typing import List
 
 
+# Travelling Salesman Problem. Bitmask problems tend to reduce O(n!) time complexity or worse to O(2^n)
 def min_cost_to_visit_every_node(graph: List[List[int]]) -> int:
     dp = [[0] * len(graph) for _ in range(2 ** len(graph))]
 
