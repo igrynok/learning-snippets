@@ -5,30 +5,28 @@ class Node:
         self.right = right
 
 
-def find(tree, data):
-    if tree is None:
-        print('False')
-        return
-    if tree.data == data:
-        print('Yes')
-        return
-    if tree.data > data:
-        find(tree.left, data)
+def find(node, data):
+    if node is None:
+        return None
+    if node.data == data:
+        return node
+    if node.data > data:
+        find(node.left, data)
     else:
-        find(tree.right, data)
+        find(node.right, data)
 
 
-def insert(tree, data):
-    if tree.data > data and tree.left is None:
-        tree.left = Node(data)
+def insert(node, data):
+    if node.data > data and node.left is None:
+        node.left = Node(data)
         return
-    elif tree.data < data and tree.right is None:
-        tree.right = Node(data)
+    elif node.data < data and node.right is None:
+        node.right = Node(data)
         return
-    elif tree.data > data:
-        insert(tree.left, data)
+    elif node.data > data:
+        insert(node.left, data)
     else:
-        insert(tree.right, data)
+        insert(node.right, data)
 
 
 def print_tree(tree):
