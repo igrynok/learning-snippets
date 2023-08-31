@@ -1,6 +1,8 @@
 from typing import List
 
 
+# Given an integer array, split it into strictly decreasing sub-arrays. Return the minimum number of decreasing
+# sub-arrays you can get from splitting the array.
 def min_decreasing_partitions(arr: List[int]) -> int:
 
     def binary_insert(elem):
