@@ -12,7 +12,7 @@ def get_largest_subarray(arr: List[int], k: int) -> List[int]:
             elif arr[largest_index + j] > arr[i + j]:
                 break
 
-    return [ arr[largest_index + i] for i in range(k)]
+    return [arr[largest_index + i] for i in range(k)]
 
 
 if __name__ == '__main__':
