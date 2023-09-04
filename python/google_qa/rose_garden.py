@@ -3,6 +3,7 @@ from bisect import insort_left
 
 
 def min_days_salads(onions: List[int], k: int, n: int) -> int:
+
     days = max(onions)
     onion_dict = {}
 
