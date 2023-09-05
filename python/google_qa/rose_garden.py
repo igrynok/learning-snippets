@@ -1,39 +1,36 @@
 from typing import List
-from bisect import insort_left
+
+
+def count_salads(onions, day, k):
+    adj = 0
+    salads = 0
+    for onion in onions:
+        if onion <= day:
+            adj += 1
+            if adj % k == 0:
+                salads += 1
+        else:
+            adj = 0
+    return salads
 
 
 def min_days_salads(onions: List[int], k: int, n: int) -> int:
 
-    days = max(onions)
-    onion_dict = {}
+    max_days = max(onions)
+    min_days = min(onions)
 
-    for index, onion in enumerate(onions):
-        if onion not in onion_dict:
-            onion_dict[onion] = [index]
+    left, right = min_days, max_days
+    first_index = -1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if count_salads(mid) >= n:
+            first_index = mid
+            right = mid - 1
         else:
-            onion_dict[onion].append(index)
+            left = mid + 1
 
-    count = 0
-    matured = []
-
-    for day in range(1, days + 1):
-
-        count += 1
-        if day in onion_dict:
-            for i in onion_dict[day]:
-                insort_left(matured, i)
-
-        adjacent = 0 if len(matured) == 0 else 1
-        for m in range(len(matured) - 1):
-            if matured[m + 1] - matured[m] == 1:
-                adjacent += 1
-
-        salads = adjacent // k
-
-        if salads >= n:
-            return count
-
-    return -1
+    return first_index
 
 
 if __name__ == '__main__':
