@@ -24,7 +24,7 @@ def min_days_salads(onions: List[int], k: int, n: int) -> int:
 
     while left <= right:
         mid = (left + right) // 2
-        if count_salads(mid) >= n:
+        if count_salads(onions, mid, k) >= n:
             first_index = mid
             right = mid - 1
         else:
