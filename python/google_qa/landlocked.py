@@ -37,7 +37,7 @@ def get_neighbours(current, grid, landlocked):
 def bfs(cell, landlocked, visited, grid):
     queue = deque(cell)
     area = 1
-    while len(queue) > 0:
+    while queue:
         current = queue.pop()
         for neighbour in get_neighbours(current, grid, landlocked):
             if neighbour in visited:
