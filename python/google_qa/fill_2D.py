@@ -1,6 +1,7 @@
 from typing import List
 import math
 
+
 def fill_2d_array(n: int) -> List[List[int]]:
 
     nums = [num for num in range(1, n*n + 1)]
