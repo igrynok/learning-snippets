@@ -18,14 +18,16 @@ def ternary_tree_paths(root: Node) -> List[str]:
 
     def dfs(node, path):
 
-        if not node.childre:
-            result.append(path)
+        if not node.children:
+            result.append("->".join(path))
             return
 
         for child in node.children:
-            dfs(child, path + '->' + str(child.val))
+            path.append(str(child.val))
+            dfs(child, path)
+            path.pop()
 
-    dfs(root, str(root.val))
+    dfs(root, [str(root.val)])
     return result
 
 
